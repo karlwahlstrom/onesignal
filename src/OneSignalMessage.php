@@ -198,7 +198,7 @@ class OneSignalMessage
         ];
 
         if($this->ios_badgeType) $message['ios_badgeType'] = $this->ios_badgeType;
-        if($this->ios_badgeCount) $message['ios_badgeType'] = $this->ios_badgeCount;    
+        if($this->ios_badgeCount) $message['ios_badgeCount'] = $this->ios_badgeCount;    
         
         foreach ($this->data as $data => $value) {
             Arr::set($message, 'data.'.$data, $value);
