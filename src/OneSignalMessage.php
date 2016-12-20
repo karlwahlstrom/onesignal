@@ -14,6 +14,12 @@ class OneSignalMessage
 
     /** @var string */
     protected $url;
+    
+    /** @var string */
+    protected $ios_badgeType;
+    
+    /** @var string */
+    protected $ios_badgeCount;
 
     /** @var string */
     protected $icon;
@@ -100,6 +106,36 @@ class OneSignalMessage
 
         return $this;
     }
+    
+    /**
+     * Set the message iosBadgeType.
+     *
+     * @param string $value
+     *
+     * @return $this
+     */
+    public function iosBadgeType($value)
+    {
+        $this->ios_badgeType = $value;
+
+        return $this;
+    }
+    
+    /**
+     * Set the message iosBadgeCount.
+     *
+     * @param string $value
+     *
+     * @return $this
+     */
+    public function iosBadgeCount($value)
+    {
+        $this->ios_badgeCount = $value;
+
+        return $this;
+    }
+    
+    
 
     /**
      * Set additional data.
@@ -161,6 +197,9 @@ class OneSignalMessage
             'small_icon' => $this->icon,
         ];
 
+        if($this->ios_badgeType) $message['ios_badgeType'] = $this->ios_badgeType;
+        if($this->ios_badgeCount) $message['ios_badgeType'] = $this->ios_badgeCount;    
+        
         foreach ($this->data as $data => $value) {
             Arr::set($message, 'data.'.$data, $value);
         }
